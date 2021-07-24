@@ -17,5 +17,8 @@ $background-pale: #D1C4E9;
 
 .nav-bar {
   background: $background-dark ;
-  color: white;
+  color: white!important;
+  a {
+    color: white;
+  }
 }
