@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
 import { Params, ActivatedRoute } from '@angular/router';
@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comment } from '../shared/comment';
+import {baseURL} from '../shared/baseurl';
 
 @Component({
   selector: 'app-dishdetail',
@@ -21,6 +22,7 @@ export class DishdetailComponent implements OnInit {
   prev: string;
   next: string;
   dish: Dish;
+  BaseURL = baseURL;
   formErrors = {
     'author': '',
     'rating': '',
