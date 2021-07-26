@@ -3,6 +3,7 @@ import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishes';
 import { of, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { Comment } from '../shared/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class DishService {
   }
   getFeatureDish(): Observable<Dish> {
     return of(DISHES.filter((dish) => (dish.featured))[0]).pipe(delay(2000));
+  }
+  //
+  pushComment (id: string, comment: Comment) {
+    return DISHES.filter((dish) => (dish.id === id))[0].comments.push(comment);
   }
 }
