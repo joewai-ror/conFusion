@@ -13,11 +13,12 @@ export class MenuComponent implements OnInit {
 
   dishes: Dish[];
   BaseURL = baseURL;
+  errMess: string;
   constructor( private dishService: DishService ) { }
 
   ngOnInit() {
     this.dishService.getDishes()
-      .subscribe(dishes => this.dishes = dishes );
+      .subscribe(dishes => this.dishes = dishes, errmess => this.errMess = <any>errmess);
   }
 
 }

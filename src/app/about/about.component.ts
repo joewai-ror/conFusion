@@ -14,11 +14,13 @@ import { baseURL } from '../shared/baseurl';
 export class AboutComponent implements OnInit {
   leaders: Leader[] ;
   BaseURL = baseURL;
+  errMess: string;
   constructor( private leaderService: LeaderService ) { }
 
   ngOnInit() {
     this.leaderService.getLeaders()
-      .subscribe(leaders => this.leaders = leaders);
+      .subscribe(leaders => this.leaders = leaders,
+        errmess => this.errMess = <any>errmess);
   }
 
 }
